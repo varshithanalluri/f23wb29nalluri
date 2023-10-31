@@ -20,7 +20,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
+
+// Define a route for your class
+app.get('/items', (req, res) => {
+  
+    const items = [
+      { item_name: 'Laptop', category: 'Electronics', quantity: 5 },
+      { item_name: 'Jean', category: 'Clothing', quantity: 3 },
+      { item_name: 'Hair Band', category: 'Hair Accessories', quantity: 8 }
+    ];
+
+    res.render('items', { title: 'Search Results - Items', items: items });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

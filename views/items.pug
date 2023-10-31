@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Search Results - Items
+  p Hello welcome this is items page!
+
+  // Loop to display objects
+  each item in items
+    div
+      h4= item.item_name
+      p Category: #{item.category}
+      p Quantity: #{item.quantity}
